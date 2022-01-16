@@ -1,0 +1,124 @@
+.UserPostMain {
+    margin-left: 9.5%;
+    margin-top: 10%;
+    background-color: black;
+    width: 650px;
+    height: 500px;
+    font-family: 'Montserrat',
+        sans-serif;
+    box-shadow: 0 0 15px 3px #ff0000;
+}
+
+.UserPostHead {
+    height: 70px;
+    background-color: rgb(0, 0, 0);
+}
+
+.UserPostBody {
+    height: 370px;
+    background-color: rgb(255, 255, 255);
+}
+
+.UserPostBodyImg img {
+    height: 370px;
+}
+
+.UserPostFoot {
+    height: 50px;
+    background-color: rgb(0, 0, 0);
+}
+
+/* .PostHead .shareWrapper {
+    padding: 10px;
+} */
+
+
+.UserPostHead .shareTop {
+    display: flex;
+    padding-top: 10px;
+}
+
+.UserPostHead .shareProfileImg {
+    margin-left: 3%;
+}
+
+.UserPostHead .shareProfileImg img {
+    /* margin-left: 10%; */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.UserPostHead .shareInput {
+    margin-left: 3%;
+    margin-top: 1%;
+    width: max-content;
+    /* height: 40px; */
+    font-weight: 600;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-family: 'Montserrat',
+        sans-serif;
+    /* background-color: rgb(0, 204, 255); */
+
+}
+
+
+.UserPostHead .shareInput:focus {
+    outline: none;
+}
+
+.PostLikeCmt {
+    display: flex;
+
+}
+
+.PostLike i:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.PostLike i {
+    color: #ff0000;
+}
+
+.PostLike {
+    margin-left: 3%;
+    margin-top: 2%;
+    width: 400px;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    display: flex;
+}
+
+.PostLikeText {
+    margin-left: 2%;
+    margin-top: 1%;
+}
+
+
+.PostCmt {
+    margin-left: 12%;
+    color: rgb(255, 255, 255);
+    margin-top: 2%;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+}
+
+.PostCmt i {
+    color: #ff0000;
+}
+
+.PostCmt i:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.PostCmtTxt {
+    margin-top: 2%;
+    margin-left: 10%;
+}

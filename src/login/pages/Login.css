@@ -1,0 +1,384 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* body {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    background: #ffffff;
+} */
+
+input,
+button {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.tip {
+    font-size: 20px;
+    margin: 40px auto 50px;
+    text-align: center;
+}
+
+/* Top */
+.cont {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    width: 900px;
+    /* padding-top: 50px; */
+    height: 550px;
+    color: #000000;
+    /* margin: 0 auto 100px; */
+    background: rgb(0, 0, 0);
+    box-shadow: 0 0 15px 10px #ff0000;
+    /* box-shadow: -10px -10px 15px rgb(255, 0, 0), 10px 10px 15px rgb(255, 0, 0); */
+}
+
+.form {
+    position: relative;
+    color: #ff0000;
+    background-color: #000000;
+    width: 600px;
+    padding-top: 50px;
+    height: 100%;
+    -webkit-transition: -webkit-transform 1.2s ease-in-out;
+    transition: -webkit-transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+    padding: 50px 0px;
+}
+
+
+.FormLables {
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+
+.LoginInputs {
+    background-color: #ff0000;
+    border-radius: 20px;
+    font-weight: 900;
+}
+
+.LoginInputs.Email {
+    /* width: 400px; */
+    margin-left: 0px;
+    /* position: absolute; */
+}
+
+/* BOTTOM */
+.sub-cont {
+    overflow: hidden;
+    position: absolute;
+    left: 600px;
+    top: 0;
+    width: 900px;
+    height: 100%;
+    padding-left: 260px;
+
+    background: rgb(0, 0, 0);
+    -webkit-transition: -webkit-transform 1.2s ease-in-out;
+    transition: -webkit-transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+}
+
+.cont.s--signup .sub-cont {
+    -webkit-transform: translate3d(-600px, 0, 0);
+    transform: translate3d(-600px, 0, 0);
+}
+
+button {
+    display: block;
+    /* margin: 0 auto; */
+    width: 260px;
+    height: 36px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.img {
+    overflow: hidden;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 260px;
+    height: 100%;
+    padding-top: 360px;
+    text-align: center;
+}
+
+
+
+/* .img:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+} */
+
+.cont.s--signup .img:before {
+    -webkit-transform: translate3d(640px, 0, 0);
+    transform: translate3d(640px, 0, 0);
+}
+
+.img__text {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    padding: 0 30px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    -webkit-transition: -webkit-transform 1.2s ease-in-out;
+    transition: -webkit-transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+}
+
+/* .img__text h2 {
+    margin-bottom: 10px;
+    font-weight: normal;
+} */
+
+.img__text p {
+    line-height: 1.5;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.cont.s--signup .img__text.m--up {
+    -webkit-transform: translateX(520px);
+    transform: translateX(520px);
+}
+
+.img__text.m--in {
+    -webkit-transform: translateX(-520px);
+    transform: translateX(-520px);
+}
+
+.cont.s--signup .img__text.m--in {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+h2 {
+    /* width: 100%; */
+    font-size: 26px;
+    /* text-align: center; */
+}
+
+label {
+    display: block;
+    width: 260px;
+    /* margin: 25px auto 0; */
+    text-align: center;
+}
+
+label span {
+    font-size: 12px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.forgot-pass {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.submit {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background: #ff0000;
+    letter-spacing: 2px;
+    width: 150px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.fb-btn {
+    border: 2px solid #d3dae9;
+    color: #8fa1c7;
+}
+
+.fb-btn span {
+    font-weight: bold;
+    color: #455a81;
+}
+
+.sign-in {
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.cont.s--signup .sign-in {
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-duration: 1.2s;
+    transition-duration: 1.2s;
+    -webkit-transform: translate3d(640px, 0, 0);
+    transform: translate3d(640px, 0, 0);
+}
+
+.sign-up {
+    -webkit-transform: translate3d(-1000px, 0, 0);
+    transform: translate3d(-1000px, 0, 0);
+}
+
+.cont.s--signup .sign-up {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+
+.SwitchStyle {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 120px;
+    height: 40px;
+    margin-left: 35px;
+    line-height: 35px;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Montserrat',
+        sans-serif;
+    text-align: center;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    /* transition: all .35s; */
+}
+
+.SwitchStyle :hover {
+    text-decoration: none;
+    background: #ff0000;
+    color: #000000;
+    font-family: 'Montserrat',
+        sans-serif;
+    font-weight: bold;
+}
+
+.LoginModalStyle {
+    font-family: 'Montserrat',
+        sans-serif;
+}
+
+.Signup_Password_Phone {
+    display: flex;
+}
+
+.SignUp_Name{
+margin-left: 80px;
+margin-top: 60px;
+}
+
+.SignUp_Name .FormLables {
+    margin-left: 200px;
+}
+.SignUp_Name .LoginInputs {
+    width: 450px;
+}
+
+
+.SignUp_Email{
+    margin-left: 60px;
+    margin-top: 20px;
+}
+.SignUp_Email .FormLables {
+    margin-left: 220px;
+}
+.SignUp_Email .LoginInputs {
+    width: 500px;
+}
+
+
+.SignUp_Password {
+    /* margin-left: 20px; */
+    margin-top: 20px;
+}
+.SignUp_Password .FormLables {
+    margin-left: 20px;
+}
+.SignUp_Password .LoginInputs {
+    width: 300px;
+}
+
+.SignUp_Phone {
+    margin-left: 70px;
+    margin-top: 20px;
+}
+
+.SignUp_Phone .FormLables {
+    margin-left: 20px;
+}
+
+.SignUp_Phone .LoginInputs {
+    width: 300px;
+}
+.SignUpHeader{
+margin-left: 135px;
+letter-spacing: 2px;
+}
+
+.SignUpBTN{
+    margin-left: 240px;
+}
+
+.LoginHeader{
+margin-left: 210px;
+letter-spacing: 2px;
+font-weight: 900;
+font-size: 30px;
+}
+
+.Login_Email{
+    margin-left: 50px;
+    margin-top: 50px;
+}
+.Login_Email .LoginInputs {
+    width:500px
+}
+.Login_Email .FormLables {
+    margin-left: 220px;
+}
+
+
+.Login_Password{
+    margin-left: 135px;
+    margin-top: 30px;
+}
+.Login_Password .LoginInputs {
+    width: 350px;
+}
+.Login_Password .FormLables {
+    margin-left: 75px;
+}
+.SignInBTN{
+    margin-left: 225px;
+}

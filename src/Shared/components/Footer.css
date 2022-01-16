@@ -1,0 +1,310 @@
+/******************************************FOOTER**********************************/
+.FooterPos{
+    margin-top: 400px;
+  }
+
+/* .AdminFooter{
+    margin-top: 200px;
+  } */
+
+
+.footer-widget p {
+    font-family: 'Montserrat',
+        sans-serif;
+    font-size: 16px;
+    margin-bottom: 27px;
+    line-height: 28px;
+}
+
+
+/******FOOTER  positions of all BLOCKS **********/
+.dk-footer {
+    padding: 25px 0 0;
+    background-color: #000000;
+    position: relative;
+    height: 400px;
+    z-index: 2;
+}
+
+/*   contact us COLOUMN POSITIONING   */
+.dk-footer .contact-us {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-left: 40px;
+}
+
+.dk-footer .contact-icon i {
+    font-size: 24px;
+    top: -15px;
+    position: relative;
+    color: #007bff;
+}
+
+
+
+/**************************FLOATING BOX********************/
+
+.dk-footer-box-info {
+    position: absolute;
+    top: -70px;
+    background: #000000;
+ /* box-shadow: 0 0 10px 5px #ff0000; */
+ box-shadow: 5px 5px 15px #ff0000;
+ font-family: 'Montserrat',
+     sans-serif;
+    padding: 20px 40px 40px 40px;
+    z-index: 2;
+}
+
+
+/*FOLLOW US   // text-design */
+.dk-footer-box-info .footer-social-link h3 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+/* to aviod the default list designs */
+.dk-footer-box-info .footer-social-link ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*alligns all the icons in a single line */
+.dk-footer-box-info .footer-social-link li {
+    display: inline-block;
+}
+
+/* each links design */
+.dk-footer-box-info .footer-social-link a i {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 5px;
+    color: #fff;
+}
+
+
+/* dk-footer-box-info .footer-social-link a i.    // to be specific  */
+.fa-facebook.FootIcon {
+    background-color: #ff0000;
+}
+
+.fa-twitter.FootIcon {
+    background-color: #ff0000;
+}
+
+.fa-google-plus.FootIcon {
+    background-color: #ff0000;
+}
+
+.fa-linkedin.FootIcon {
+    background-color: #ff0000;
+}
+
+.fa-instagram.FootIcon {
+    background-color: #ff0000;
+}
+
+
+/*****************************************************/
+
+
+
+/*The final blue animated border and upper body margin*/
+.footer-awarad {
+    margin-top: 250px;
+}
+
+/*BMSCE ARENA bottom title*/
+.footer-awarad p {
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Montserrat',
+    sans-serif;
+    margin-left: 20px;
+    padding-top: 15px;
+}
+
+/* the text below it */
+.footer-info-text {
+    margin: px px;
+}
+
+/* the 2nd and 3rd column*/
+.footer-left-widget {
+    padding-left: 80px;
+        font-family: 'Montserrat',
+        sans-serif;
+}
+
+.footer-rigth-widget {
+    /* padding-left: 90px; */
+}
+
+/*space in btw head and info */
+/*.footer-widget .section-heading {         
+  margin-bottom: 35px;  
+}*/
+
+
+
+/****Useful links*********and************Get in Touch with us**********/
+.footer-widget h3 {
+    font-size: 24px;
+    color: #fff;
+    position: relative;
+    margin-bottom: 15px;
+    max-width: fit-content;
+}
+
+/*List Designs*/
+.footer-widget ul {
+    width: 50%;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*List items*/
+.footer-widget li {
+    margin-bottom: 18px;
+}
+
+
+/*Color transition after hovering on links*/
+.footer-widget a {
+    color: #ff0000;
+    transition: all 0.3s;
+    text-decoration: none;
+    /* to be specific to websites */
+    /* -webkit-transition: all 0.3s; */
+    /* -o-transition: all 0.3s; */
+
+}
+
+
+/*Gets this color after hovering*/
+.footer-widget a:hover {
+    color: #ffffff;
+    text-decoration: none;
+
+}
+
+/************************Form input box SEND US MAIL******************/
+.dk-footer-form input[type=email] {
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 50px;
+    background: #2E2E2E;
+    border: 1px solid #2E2E2E;
+}
+
+/*Send button icon */
+.dk-footer-form button[type=submit] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 6px 24px 6px 17px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: 1px solid #007bff;
+    background: #007bff;
+    color: #fff;
+}
+
+/*Cursor changes to pointer after hovering */
+.dk-footer-form button:hover {
+    cursor: pointer;
+}
+
+
+
+
+/*****************************Contact Us ***************************/
+.contact-us {
+    position: relative;
+    z-index: 2;
+    margin-top: 65px;
+        font-family: 'Montserrat',
+        sans-serif;
+    display: flex;
+}
+
+.contact-icon {
+    position: absolute;
+}
+
+.contact-icon i {
+    font-size: 36px;
+    top: -5px;
+    position: relative;
+    color: #007bff;
+}
+
+.contact-info {
+    margin-left: 75px;
+    color: #fff;
+}
+
+.contact-info h3 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.Mailpos {
+    margin-left: 25px;
+}
+
+
+
+/*************THE END   Copyright 2020**************/
+.copyright {
+    background-color: #000000;
+    margin-top: 130px;
+    position: absolute;
+    /*imp, very imp */
+}
+
+.copyright span,
+.copyright a {
+    background-color: #000000;
+        font-family: 'Montserrat',
+        sans-serif;
+    color: #ff0000;
+}
+
+ .AnimateTop {
+     width: 14px;
+     height: 5px;
+     background: #fff;
+     position: relative;
+     animation: mymove 4s infinite;
+ }
+
+ @keyframes mymove {
+     from {
+         left: 0px;
+     }
+
+     to {
+         left: 1505px;
+     }
+ }
+/******************************************************/
+
+
+
+
+
+
+
+/*font-family: 'Merriweather', serif;*/
+/*    font-family: 'PT Serif', serif;*/
+/* font-family: 'Merriweather', sans-serif;*/
+/*font-family: 'Nunito', sans-serif;*/

@@ -1,0 +1,30 @@
+.QueryFeed {
+    display: flex;
+    background-color: black;
+}
+
+.QuerySideBar {
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    height: 630px;
+    width: 300px;
+    /* box-shadow: 0 0 8px 5px #ff0000; */
+
+}
+
+.QueryMidFeed {
+    /* position: relative; */
+    margin-left: 360px;
+    background-color: rgb(0, 0, 0);
+    /* height: 900px; */
+    width: 800px;
+}
+
+.QueryRightBar {
+    margin-left: 80%;
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    /* box-shadow: 0 0 8px 5px #ff0000; */
+    height: 630px;
+    width: 300px;
+}

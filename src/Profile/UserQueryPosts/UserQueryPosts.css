@@ -1,0 +1,240 @@
+.UserQueryMainPost {
+    margin-left: 8%;
+    margin-top: 7%;
+    background-color: black;
+    width: 700px;
+    height: 205px;
+    font-family: 'Montserrat',
+        sans-serif;
+    box-shadow: 0 0 15px 2px #ff0000;
+}
+
+
+.UserQueryPostHead {
+    height: 50px;
+    background-color: rgb(0, 0, 0);
+}
+
+.UserQueryPostHead .shareProfileImg img {
+    /* margin-left: 10%; */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.UserQueryPostHead .shareInput {
+    margin-left: 3%;
+    margin-top: 1%;
+    width: max-content;
+    /* height: 40px; */
+    font-weight: 600;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-family: 'Montserrat',
+        sans-serif;
+
+}
+
+
+.UserQueryPostHead .shareInput:focus {
+    outline: none;
+}
+
+.UserQueryPostHead .shareTop {
+    display: flex;
+    padding-top: 10px;
+}
+
+.UserQueryPostHead .shareProfileImg {
+    margin-left: 3%;
+}
+
+/* *************************** */
+
+.UserQueryPostBody {
+    height: 85px;
+    background-color: rgb(0, 0, 0);
+}
+
+.UserQueryQuestion {
+    height: 150px;
+    color: rgb(255, 0, 0);
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    padding: 15px;
+    /* overflow: scroll; */
+    /* background-color: #168a54; */
+}
+
+.UserQueryReadMore {
+    color: #000000;
+    font-size: 15px;
+    /* height: 10px; */
+    margin-top: 15px;
+    margin-left: 75%;
+    /* letter-spacing: 1px; */
+    /* width: 50px; */
+}
+
+.UserQueryReadMore a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.UserQueryReadMore a:hover {
+    text-decoration: none;
+    color: #ff0000;
+    letter-spacing: 2px;
+}
+
+
+
+/* **************************************************** */
+
+.UserQueryPostFoot {
+    margin-top: 25px;
+    height: 40px;
+    background-color: rgb(0, 0, 0);
+}
+
+/* .PostHead .shareWrapper {
+    padding: 10px;
+} */
+
+
+
+.UserQueryPostLikeCmt {
+    display: flex;
+    position: absolute;
+}
+
+
+/*  1 ********* */
+
+.UserQueryPostLike i:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.UserQueryPostLike i {
+    color: #ff0000;
+}
+
+.UserQueryPostLike {
+    margin-left: 20px;
+    margin-top: 2%;
+    width: 400px;
+    font-size: 13px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    display: flex;
+}
+
+.UserQueryPostLikeText {
+    margin-left: 2%;
+    margin-top: 1%;
+}
+
+
+/* 2 ************************ */
+
+.UserQueryPostAns {
+    margin-left: 540px;
+    margin-top: 2%;
+    width: 400px;
+    font-size: 13px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    display: flex;
+    position: absolute;
+
+}
+
+.UserQueryPostAns i:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.UserQueryPostAns i {
+    color: #ff0000;
+}
+
+
+.UserQueryPostAnsText {
+    margin-left: 3%;
+    margin-top: 1%;
+}
+
+
+/* 3 ********************* */
+.QueryPostCmt {
+    margin-left: 600px;
+    color: rgb(255, 255, 255);
+    margin-top: 2%;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    position: absolute;
+
+}
+
+.QueryPostCmt i {
+    color: #ff0000;
+}
+
+.QueryPostCmt i:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.QueryPostCmtText {
+    margin-top: 2%;
+    margin-left: 10%;
+}
+
+
+/* .QueryPost {
+    background-color: #ff0000;
+    width: 650px;
+    height: 500px;
+    margin-top: 40px;
+    margin-left: 80px;
+    margin-bottom: 50px;
+} */
+
+
+/*********SCROLL BAR  1 ==> List Items *************/
+
+.QueryQuestionScrollbar {
+    /* margin-left: 30px; */
+    /* float: left; */
+    height: 60px;
+    /* width: 730px; */
+    background: #000000;
+    overflow-y: scroll;
+    /* margin-bottom: 25px; */
+}
+
+.QueryQuestionForce-overflow {
+    min-height: fit-content;
+}
+
+
+#style-4::-webkit-QueryQuestionScrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #000000;
+}
+
+#style-4::-webkit-QueryQuestionScrollbar {
+    width: 4px;
+    background-color: #000000;
+}
+
+#style-4::-webkit-QueryQuestionScrollbar-thumb {
+    background-color: #ff0000;
+    border: 2px solid #ff0000;
+}

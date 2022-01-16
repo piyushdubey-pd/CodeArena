@@ -1,0 +1,39 @@
+.WhatweDoPOS{
+    margin-top: 160px;
+}
+
+.WhatweDoPOS .Title {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-family: 'Montserrat',
+    sans-serif;
+    /* background-color: #f00000; */
+    color: rgb(255, 255, 255);
+    box-shadow: 6px 6px 6px #ff0000;
+    display: inline-block;
+    margin-left: 170px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 15px;
+}
+
+.Cards{
+    margin-top: 150px;
+    margin-bottom: 200px;
+    margin-left: 180px;
+}
+
+.CardItem{
+    display: inline-block;
+}
+
+
+.CardItem2{
+    padding-left: 350px;
+}
+
+.CardItem3{
+    padding-left: 350px;
+}

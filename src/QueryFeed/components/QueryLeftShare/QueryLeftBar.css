@@ -1,0 +1,68 @@
+.LeftBarMain {
+    width:300px;
+    margin-top: 10px;
+    box-shadow: 0 8px 5px 5px #ff0000;
+
+}
+
+.LeftBarHead {
+    background-color: rgb(255, 0, 0);
+    height: 40px;
+}
+
+.LeftBarHeadText {
+    color: rgb(0, 0, 0);
+    font-family: 'Montserrat',
+        sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: 900;
+    box-shadow: 0 8px 4px -4px rgb(0, 0, 0);
+    display: flex;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.LeftBarHeadIcon {
+    color: rgb(0, 0, 0);
+    padding-left: 10px;
+}
+
+/*******************************************************/
+.LeftBarList {
+    padding-top: 10px;
+
+}
+
+/*********SCROLL BAR  1 ==> List Items *************/
+
+.LeftBarListItemsScrollbar {
+    /* margin-left: 30px; */
+    /* float: left; */
+    height: 560px;
+    /* width: 730px; */
+    background: #000000;
+    overflow-y: scroll;
+    /* margin-bottom: 25px; */
+}
+
+.LeftBarListItemsSrollforce-overflow {
+    min-height: fit-content;
+}
+
+
+#style-4::-webkit-LeftBarListItemsScrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #000000;
+}
+
+#style-4::-webkit-LeftBarListItemsScrollbar {
+    width: 4px;
+    background-color: #000000;
+}
+
+#style-4::-webkit-LeftBarListItemsScrollbar-thumb {
+    background-color: #ff0000;
+    border: 2px solid #ff0000;
+}

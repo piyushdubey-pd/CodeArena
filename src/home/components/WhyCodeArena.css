@@ -1,0 +1,116 @@
+.WhyCodeArena{
+    margin-top: 240px;
+}
+
+.WhyCodeArena .Title {
+        text-align: center;
+        font-size: 35px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        font-family: 'Montserrat',
+        sans-serif;
+        /* background-color: #f00000; */
+        color: rgb(255, 255, 255);
+        /* text-shadow: 4px 4px #ff0000; */
+        box-shadow: 6px 6px 6px #ff0000;
+        display: inline-block;
+        /* margin-left: 870px; */
+        margin-left: 830px;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 10px;
+        margin-bottom: 170px;
+
+}
+
+.GridBackground{
+    /* background-color: rgb(0, 0, 0); */
+    /* margin-bottom: 200px; */
+}
+
+.FirstLeft {
+    position: absolute;
+    display: inline-block;
+    /* background-color: rgb(0, 0, 0); */
+    height: 400px;
+    width : 600px;
+}
+
+.FirstRight {
+    position: relative;
+    display: inline-block;
+    /* background-color: rgb(0, 141, 118); */
+    height: 400px;
+    width : 700px;
+    margin-left: 618px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.SecondLeft{
+      display: inline-block;
+      background-color: rgb(0, 141, 118);
+      height: 400px;
+      width : 700px;
+}
+
+.SecondRight{
+     position: absolute;
+      display: inline-block;
+      /* background-color: rgb(0, 0, 0); */
+      height: 400px;
+      width : 600px;
+      margin-left: 18px;
+}
+.ThirdLeft{
+        position: absolute;
+        display: inline-block;
+        /* background-color: rgb(0, 0, 0); */
+        height: 400px;
+        width : 600px;
+}
+
+.ThirdRight{
+    position: relative;
+    display: inline-block;
+    background-color: rgb(0, 141, 118);
+    height: 400px;
+    width : 700px;
+    margin-left: 618px;
+}
+
+.SecondRow{
+    margin-top: 25px;
+}
+
+.ThirdRow {
+    margin-top: 25px;
+}
+
+.GridBackground .Header {
+    color: #ffffff;
+    font-size: 30px;
+    letter-spacing: 4px;
+    padding-top: 30px;
+    font-weight: 1000;
+    text-align: center;
+    font-family: 'Montserrat',
+    sans-serif;
+}
+
+.GridBackground .Description {
+    color: #ff0000;
+    font-size: 17px;
+    line-height: 30px;
+    letter-spacing: 2px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-weight: 1000;
+    padding-top: 30px;
+    text-align: center;
+    font-family: 'Montserrat',
+        sans-serif;
+}

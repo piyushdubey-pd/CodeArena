@@ -1,0 +1,62 @@
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0%;
+}
+
+.UserNav .NavSize {
+    background-color: rgb(0, 0, 0);
+    height: 80px;
+    padding-top: 0 rem;
+    padding-bottom: 0.5rem;
+}
+
+.UserNav .NavPos {
+    margin-left: 0px;
+    font-size: 40px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #ff0000;
+    font-family: 'Montserrat',
+        sans-serif;
+    transition: all 1s;
+
+}
+
+.UserNav .NavPos:hover {
+    color: rgb(255, 255, 255);
+}
+
+.UserNav .UserNavItemsPos {
+    /* font-size: 18px; */
+    margin-left: 200px;
+}
+
+.UserNav .NavItemPos {
+    padding-right: 40px;
+}
+
+.UserNav .NavLinksStyle {
+    color: #ff0000;
+    font-family: 'Montserrat',
+        sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: all .4s;
+
+}
+
+.UserNav .NavLinksStyle:hover {
+    color: white;
+}
+
+.UserNav .NavToggleBarStyle {
+    background-color: black
+}
+
+.UserNav .Subtitle {
+    font-size: 15px;
+    color: #ffffff;
+}

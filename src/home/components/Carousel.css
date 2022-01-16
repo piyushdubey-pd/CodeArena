@@ -1,0 +1,115 @@
+.mainDiv{
+background-color: black;
+/* position: absolute;
+z-index: 1; */
+}
+
+.CarouselSize {
+    margin-left: 0%;
+    width: 55%;
+    /* height: 570px; */
+    /* margin-top: 40px; */
+    position: relative;
+    margin-top: 50px;
+    display: inline-block;
+}
+
+.CarouselBack{
+    height: 560px;
+    text-align: center;
+}
+
+.CarouselBack img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.CarouselRightContent{
+    position: absolute;
+    display: inline-block;
+}
+
+.CarouselRightContent h1{
+    word-wrap: break-word;
+    /* width: 614px; */
+    color: #ff0000;
+    margin-top: 50px;
+    margin-left: 120px;
+font-family: 'Montserrat',
+sans-serif;
+}
+
+/* #ff0037 */
+
+.CarouselRightContent p{
+        word-wrap: break-word;
+        /* width: 414px; */
+        color: #ffffff;
+        margin-top: 30px;
+        margin-right: 100px;
+        font-size: 15px;
+        margin-left: 120px;
+        letter-spacing: 2px;
+        line-height: 30px;
+        font-family: 'Montserrat',
+        sans-serif;
+}
+
+
+
+/* *========================BUTTON ONE========================*/  
+
+
+.wrapper {
+    /* position: fixed; */
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+}
+
+.link_wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.wrapper a {
+
+    margin-left: 120px;
+    margin-top: 130px;
+    display: block;
+    width: 120px;
+    height: 40px;
+    line-height: 35px;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Montserrat',
+    sans-serif;
+    text-align: center;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border: 3px solid #ff0000;
+    transition: all .35s;
+}
+
+.wrapper a:hover {
+    /* width: 200px; */
+    border: 3px solid #000000;
+    background: #ff0000;
+    color: #000000;
+      width: 140px;
+      height: 60px;
+    line-height: 55px;
+      font-family: 'Montserrat',
+      sans-serif;
+    font-weight: bold;
+
+}
+
+
+
+.link_wrapper.AdminBTN{
+    display: inline-block;
+    margin-left: 110px;
+}
+

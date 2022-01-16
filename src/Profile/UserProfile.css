@@ -1,0 +1,176 @@
+.UserProfileMain {
+    background-color: black;
+    width: 100%;
+}
+
+.UserProfileContainer {
+    width: 75%;
+    box-shadow: 0 0 15px 10px #ff0000;
+    margin-left: 13%;
+    /* height: 633px; */
+    font-family: 'Montserrat',
+        sans-serif;
+}
+
+.UserProfileHeadText {
+    width: 80%;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    margin-left: 115px;
+    padding-left: 20px;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 8px 6px -6px #ff0000;
+
+}
+
+/*************************************************************/
+.UserProfile_1_Content {
+    display: flex;
+    width: 80%;
+    margin-left: 10%;
+    box-shadow: 0 8px 6px -6px #ff0000;
+
+}
+
+.UserProfileDetails {
+    margin-top: 70px;
+    line-height: 30px;
+    width: 60%;
+    font-family: 'Montserrat',
+        sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #ff0000;
+    font-weight: 900;
+}
+
+.UserProfileImage {
+    width: 30%;
+    margin-left: 10%;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.UserProfileImageStyle {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    box-shadow: 0 0 10px 5px #ff0000;
+}
+
+.UserProfileDetailsList {
+    list-style-type: none;
+}
+
+/****************************************************/
+
+.UserProfile_2_Content {
+    display: flex;
+    margin-top: 15px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    background-color: #ff0000;
+    height: 45px;
+    width: 80%;
+    color: rgb(0, 0, 0);
+    margin-left: 10%;
+    font-weight: 900;
+}
+
+
+/* 1 */
+.UserProfile_2_Content_Col_1 {
+    width: 33%;
+    padding-top: 7px;
+    text-align: center;
+    border-right: 3px solid black;
+    transition: all .5s;
+}
+
+.UserProfile_2_Content_Col_1_ON {
+    width: 33%;
+    padding-top: 7px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    letter-spacing: 5px;
+    transition: all .5s;
+    border-right: 3px solid black;
+}
+
+
+.UserProfile_2_Content_Col_1 :hover {
+    letter-spacing: 3px;
+    color: white;
+    cursor: pointer;
+    transition: all .5s;
+    letter-spacing: 2px;
+}
+
+/* 2 */
+
+.UserProfile_2_Content_Col_2 {
+    text-align: center;
+    padding-top: 7px;
+    border-right: 3px solid black;
+    width: 33%;
+    transition: all .5s;
+
+}
+.UserProfile_2_Content_Col_2_ON {
+    width: 33%;
+    padding-top: 7px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    letter-spacing: 5px;
+    transition: all .5s;
+    border-right: 3px solid black;
+}
+.UserProfile_2_Content_Col_2 :hover {
+    letter-spacing: 3px;
+    color: white;
+    cursor: pointer;
+    transition: all .5s;
+    letter-spacing: 2px;
+}
+/* 3 */
+.UserProfile_2_Content_Col_3 {
+    width: 33%;
+    padding-top: 7px;
+    text-align: center;
+    transition: all .5s;
+
+}
+.UserProfile_2_Content_Col_3_ON {
+    width: 33%;
+    padding-top: 7px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    letter-spacing: 5px;
+    transition: all .5s;
+    /* border-right: 3px solid black; */
+}
+.UserProfile_2_Content_Col_3 :hover {
+    letter-spacing: 3px;
+    color: white;
+    cursor: pointer;
+    transition: all .5s;
+    letter-spacing: 2px;
+}
+/****Display SWITCHING*******/
+.UserProfile_3_Content_Visibility{
+    display: none;
+}
+
+
+.QueryDisplayMain{
+    margin-top: 10%;
+    margin-left: 12.5%;
+}
+
+.PostDisplayMain{
+    margin-top: 10%;
+    margin-left: 14%;
+}

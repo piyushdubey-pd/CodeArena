@@ -1,0 +1,67 @@
+.TcardStyle {
+    width: 320px;
+    height: 320px;
+    display: inline-block;
+    background-color: black;
+    color: #ff0000;
+    /* box-shadow: 10px 10px 0px #ff0000; */
+    font-family: 'Montserrat',
+        sans-serif;
+}
+
+
+.effect8 {
+    position: relative;
+    -webkit-box-shadow: 0 1px 4px rgb(255, 0, 0), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgb(255, 0, 0), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 20px rgb(255, 0, 0), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.effect8:before,
+.effect8:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-box-shadow: 0 0 20px rgb(255, 0, 0);
+    -moz-box-shadow: 0 0 20px rgb(255, 0, 0);
+    box-shadow: 0 0 40px rgb(255, 0, 0);
+    top: 10px;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    -moz-border-radius: 100px / 10px;
+    border-radius: 100px / 10px;
+}
+
+.effect8:after {
+    right: 10px;
+    left: auto;
+    -webkit-transform: skew(8deg) rotate(3deg);
+    -moz-transform: skew(8deg) rotate(3deg);
+    -ms-transform: skew(8deg) rotate(3deg);
+    -o-transform: skew(8deg) rotate(3deg);
+    transform: skew(8deg) rotate(3deg);
+}
+
+.CardImage{
+    width: 200px;
+    height: 200px;
+}
+
+.Tcard-titlePOS {
+    padding-top: 20px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+
+.IconsPOS{
+    text-align: center;
+    margin-left: 45px;
+}
+
+.EachIcons{
+    padding-right: 40px;
+}

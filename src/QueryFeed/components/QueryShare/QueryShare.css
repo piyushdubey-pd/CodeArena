@@ -1,0 +1,192 @@
+.QueryShare {
+    /* position: absolute; */
+    width: 90%;
+    margin-left: 0%;
+    margin-top: 10%;
+    height: 170px;
+    border-radius: 10px;
+    /* -webkit-box-shadow: 8px 8px 16px -8px rgb(255, 255, 255); */
+    /* box-shadow: 8px 8px 8px -8px rgb(255, 0, 0); */
+    box-shadow: 0 0 15px 5px #ff0000;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    font-family: 'Montserrat',
+        sans-serif;
+}
+
+/* .shareWrapper {
+    padding: 10px;
+} */
+
+
+
+.shareProfileImg {
+    margin-left: 3%;
+}
+
+.shareProfileImg img {
+    margin-left: 10%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.shareInput {
+    margin-left: 8%;
+    width: 500px;
+    border: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.shareInput ::placeholder {
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+}
+
+.shareInput input {
+    color: rgb(255, 255, 255);
+}
+
+.shareInput:focus {
+    outline: none;
+}
+
+
+hr.shareHr {
+    margin: 20px;
+    height: 7px;
+    color: red;
+    opacity: .8;
+}
+
+.shareBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.shareOptions {
+    display: flex;
+    margin-left: 20px;
+}
+
+.shareOption {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.shareIcon {
+    font-size: 18px;
+    margin-right: 3px;
+}
+
+.shareOptionText {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.shareButton {
+    /* border: none; */
+    /* padding: 7px; */
+    /* border-radius: 5px; */
+    background-color: red;
+    width: 100px;
+    font-weight: 500;
+    /* margin-right: 20px; */
+    cursor: pointer;
+    color: white;
+}
+
+/* ************************************************** */
+
+
+.QueryshareTop {
+    display: flex;
+    margin-top: 5%;
+    margin-left: 15px;
+}
+
+.QuerysearchBar {
+    /* position: fixed; */
+    display: flex;
+    margin-left: 5%;
+    /* margin-top: 2%; */
+    width: 500px;
+    height: 50px;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 0 5px 2px #ff0000;
+    border-radius: 30px;
+    color: rgb(255, 0, 0);
+    align-items: center;
+    font-family: 'Montserrat',
+        sans-serif;
+}
+
+.QuerysearchBar ::placeholder {
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+}
+
+.QuerysearchBar input {
+    margin-left: 0%;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+
+.QsearchIcon {
+    margin-left: 5%;
+}
+
+.QueryShare{
+    margin-top: 5%;
+    display: flex;
+}
+
+/* *========================BUTTON ONE========================*/
+.Qlink_wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.Qwrapper a {
+    margin-top: 5px;
+    margin-left: 95px;
+    display: block;
+    width: 120px;
+    height: 40px;
+    line-height: 35px;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Montserrat',
+        sans-serif;
+    text-align: center;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border: 3px solid #ff0000;
+    transition: all .35s;
+}
+
+.Qwrapper a:hover {
+    /* width: 200px; */
+    border: 3px solid #000000;
+    background: #ff0000;
+    color: #000000;
+    /* width: 130px; */
+    /* height: 50px; */
+    line-height: 40px;
+    font-family: 'Montserrat',
+        sans-serif;
+    font-weight: bold;
+
+}
+
+/* ************************************************ */
+
