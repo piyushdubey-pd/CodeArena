@@ -1,10 +1,14 @@
 import "./Share.css";
 import { PermMedia, Label, Room, EmojiEmotions } from "@mui/icons-material";
 import { Search } from "@mui/icons-material";
-
+import { useAuth } from "../../../../contexts/AuthContext";
 import img1 from "../FeedPeopleImages/4.jpg"
+import {db} from "../../../../firebase";
 import React from "react";
 export default function Share() {
+  const { currentUser } = useAuth();
+  
+  var message="Whats on your mind "+currentUser.uid+"?";
   return (
     <React.Fragment>
     
@@ -24,7 +28,7 @@ export default function Share() {
               <img src={img1} alt="" />
             </div>
             <div className="shareInput">
-              <input placeholder="What's in your mind Akash?" />
+              <input placeholder={message} />
             </div>
           </div>
           <hr className="shareHr" />

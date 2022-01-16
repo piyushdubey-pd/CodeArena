@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
+import {db} from "../../firebase";
+import {ref, set} from "firebase/database"
 import "./Login.css";
 
 import { Button } from "@mui/material";
+import { FaxRounded } from "@mui/icons-material";
 const Login = () => {
   const [toggle, SetToggle] = useState(false);
 
@@ -42,21 +45,27 @@ const Login = () => {
     const user_det=await signup(email,passw);
     // console.log(user_det.user.uid);
     var uid=user_det.user.uid;
-    const res = await fetch("https://proj1-8a95b-default-rtdb.firebaseio.com/login_details.json",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-        uid,
-        name,
-      phno,
-    }),
-    }
-    );
+    set(ref(db,"login_details/"+uid),{
+      name:name,
+      phno:phno
+    });
+  
 
-    if (res){
+    // const res = await fetch("https://proj1-8a95b-default-rtdb.firebaseio.com/login_details.json",
+    // {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    // },
+    // body: JSON.stringify({
+    //     uid,
+    //     name,
+    //   phno,
+    // }),
+    // }
+    // );
+
+    // if (res){
       setUser({
         name: "",
         email: "",
@@ -66,7 +75,7 @@ const Login = () => {
 
       alert("Data posted successfully");
       history.push("/PostFeed");
-    }
+    // }
   }
   else{
     alert("Please fill all the details");
