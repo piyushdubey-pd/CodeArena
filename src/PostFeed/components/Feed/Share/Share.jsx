@@ -4,11 +4,22 @@ import { Search } from "@mui/icons-material";
 import { useAuth } from "../../../../contexts/AuthContext";
 import img1 from "../FeedPeopleImages/4.jpg"
 import {db} from "../../../../firebase";
+import {get, ref, set, child} from "firebase/database";
 import React from "react";
+
+var message="Hey whats on your mind ";
 export default function Share() {
   const { currentUser } = useAuth();
-  
-  var message="Whats on your mind "+currentUser.uid+"?";
+
+  const temp=ref(db);
+  get(child(temp, `login_details/${currentUser.uid}`)).then((snapshot) => {
+    if (snapshot.exists()){
+      message=message+snapshot.val().name+"?";
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+  console.log(message);
   return (
     <React.Fragment>
     
