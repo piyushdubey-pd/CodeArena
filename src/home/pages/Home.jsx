@@ -77,7 +77,7 @@ const Home = () => {
     // </React.Fragment>
     
       <React.Fragment>
-        <BackParticles />
+        {/* <BackParticles /> */}
         <Navigation />
          <MyCarousel />
         <WhatweDo />

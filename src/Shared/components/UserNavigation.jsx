@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import {useAuth} from "../../contexts/AuthContext";
 import "./UserNavigation.css";
 
 import {
@@ -22,6 +22,7 @@ const Navigation = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  const {logout}=useAuth();
 
   return (
     <div className="UserNav sticky-top">
@@ -57,7 +58,7 @@ const Navigation = (props) => {
               </NavItem>
 
               <NavItem className="NavItemPos">
-                <NavLink className="NavLinksStyle" href="/components/">
+                <NavLink className="NavLinksStyle" href="/" onClick={logout}>
                   Log Out
                 </NavLink>
               </NavItem>

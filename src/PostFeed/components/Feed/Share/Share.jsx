@@ -5,25 +5,31 @@ import { useAuth } from "../../../../contexts/AuthContext";
 import img1 from "../FeedPeopleImages/4.jpg"
 import {db} from "../../../../firebase";
 import {get, ref, set, child} from "firebase/database";
-import React from "react";
+import React,{useState, useEffect} from "react";
 
-var message="Hey whats on your mind ";
 export default function Share() {
-  const { currentUser } = useAuth();
+  const { currentUser }=useAuth();
 
-  const temp=ref(db);
-  get(child(temp, `login_details/${currentUser.uid}`)).then((snapshot) => {
-    if (snapshot.exists()){
-      message=message+snapshot.val().name+"?";
-    }
-  }).catch((error) => {
-    console.error(error);
-  });
-  console.log(message);
+  const [message, setMessage] = useState(null);
+
+
+
+  useEffect(() => {
+    const temp=ref(db);
+    // currentUser=useAuth();
+    get(child(temp, `login_details/${currentUser.uid}`)).then((snapshot) => {
+      if (snapshot.exists()){
+        setMessage("Hey what's on your mind "+snapshot.val().name+"?");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+    console.log(message);
+    }, [] );
   return (
     <React.Fragment>
-    
-      <div className="searchBar ">
+
+      <div className="searchBar " >
         <Search className="searchIcon" />
         <input
           placeholder="Search for Posts"
@@ -34,7 +40,7 @@ export default function Share() {
       <div className="share">
         <div className="shareWrapper">
 
-          <div className="shareTop">
+          {message && <div className="shareTop">
             <div className="shareProfileImg">
               <img src={img1} alt="" />
             </div>
@@ -42,6 +48,7 @@ export default function Share() {
               <input placeholder={message} />
             </div>
           </div>
+          }
           <hr className="shareHr" />
           <div className="shareBottom">
             <div className="shareOptions">

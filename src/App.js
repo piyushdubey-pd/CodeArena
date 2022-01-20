@@ -8,16 +8,17 @@ import Home from "./home/pages/Home.jsx";
 import PostFeed from "./PostFeed/Pages/PostFeed.jsx";
 import QueryFeed from "./QueryFeed/Pages/QuereyFeed";
 import UserProfile from "./Profile/UserProfile.jsx";
-import { AuthProvider } from "./contexts/AuthContext.js";
+import { AuthProvider, useAuth } from "./contexts/AuthContext.js";
 // import Login from "./login/pages/Login.jsx"
 // import Signup from "./Signup/pages/Signup.jsx";
-
 const App = () => {
+
+  const user = useAuth();
   return (
     <AuthProvider>
     <Router>
       <Route path="/" exact>
-        <Home />
+         <Home /> 
       </Route>
 
       <Route path="/PostFeed">
