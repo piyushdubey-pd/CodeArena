@@ -137,11 +137,11 @@ export default function Share() {
   const submitPost = async (e) =>{
     console.log("Submit clicked");
     var temp = new Date().toLocaleString();
-    setPostdetails({ ... postdetails, ["post_time"]: temp });
     setPostdetails({ ... postdetails, ["post_id"]: currentUser.uid+":"+temp });
 
     if (postdetails["post_details"]!=""){
       set(ref(db, `posts/${postdetails["post_id"]}`), postdetails);
+      setPostdetails({ ... postdetails, ["post_time"]: temp });
     }
     else
     {
