@@ -7,6 +7,7 @@ import {db} from "../../../../firebase";
 import {get, ref, set, child} from "firebase/database";
 import React,{useState, useEffect} from "react";
 import { getStorage, ref as refs, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import userEvent from "@testing-library/user-event";
 
 export default function Share() {
   const { currentUser }=useAuth();
@@ -85,6 +86,7 @@ export default function Share() {
 
   const [postdetails, setPostdetails] = useState({
     post_id: "",
+    post_user: currentUser.uid,
     post_details: "",
     post_multi: "",
     post_location: "",
