@@ -75,6 +75,7 @@ export default function Share() {
     // Upload completed successfully, now we can get the download URL
     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
       console.log('File available at', downloadURL);
+      setPostdetails({ ... postdetails, ["post_image"]: downloadURL });
     });
   }
   );
