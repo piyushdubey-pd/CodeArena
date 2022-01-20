@@ -75,18 +75,18 @@ export default function Share() {
     // Upload completed successfully, now we can get the download URL
     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
       console.log('File available at', downloadURL);
-      setPostdetails({ ... postdetails, ["post_image"]: downloadURL });
+      setPostdetails({ ... postdetails, ["post_multi"]: downloadURL });
     });
   }
   );
 }
 //imgupload end
 
+
   const [postdetails, setPostdetails] = useState({
     post_id: "",
     post_details: "",
-    post_image: "",
-    post_video: "",
+    post_multi: "",
     post_location: "",
     post_time: "",
     likes: 0,
