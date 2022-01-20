@@ -18,7 +18,7 @@ const App = () => {
     <AuthProvider>
     <Router>
       <Route path="/" exact>
-         <Home /> 
+        <Home /> 
       </Route>
 
       <Route path="/PostFeed">
