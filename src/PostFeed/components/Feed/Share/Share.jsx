@@ -9,13 +9,32 @@ import React,{useState, useEffect} from "react";
 import { getStorage, ref as refs, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import userEvent from "@testing-library/user-event";
 
+
 export default function Share() {
   const { currentUser }=useAuth();
   const storage = getStorage();
   const storageRef = refs(storage, 'some-child');
   const [message, setMessage] = useState(null);
 
-// upload image start
+// ******************geolocation ********************
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position){
+        console.log(position);
+      var img = new Image();
+      // image of map with the location is created
+      img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + position.coords.latitude + "," + position.coords.longitude + "&zoom=13&size=800x400&sensor=false";
+      setPostdetails({ ... postdetails, ["post_location"]: position.coords.latitude + ","+position.coords.longitude}); 
+      // $('#output').html(img);
+      });
+      }  
+      else
+      {
+        console.log("Geolocation unavailable");
+      }
+  };
+
+//****************upload image/vid start**************************
   var file,files=[];
   const upImg = () => {
   var input = document.createElement('input');
@@ -81,8 +100,7 @@ export default function Share() {
   }
   );
 }
-//imgupload end
-
+//************************img/vid upload end ***************************
 
   const [postdetails, setPostdetails] = useState({
     post_id: "",
@@ -115,6 +133,21 @@ export default function Share() {
     });
     console.log(message);
     }, [] );
+  
+  const submitPost = async (e) =>{
+    console.log("Submit clicked");
+    var temp = new Date().toLocaleString();
+    setPostdetails({ ... postdetails, ["post_time"]: temp });
+    setPostdetails({ ... postdetails, ["post_id"]: currentUser.uid+":"+temp });
+
+    if (postdetails["post_details"]!=""){
+      set(ref(db, `posts/${postdetails["post_id"]}`), postdetails);
+    }
+    else
+    {
+      alert("Incomplete feild for posting");
+    }
+  }
   return (
     <React.Fragment>
 
@@ -151,14 +184,14 @@ export default function Share() {
               </div>
               <div className="shareOption">
                 <Room htmlColor="green" className="shareIcon" />
-                <span className="shareOptionText" >Location</span>
+                <span className="shareOptionText" onClick={getLocation}>Location</span>
               </div>
               <div className="shareOption">
                 <EmojiEmotions htmlColor="goldenrod" className="shareIcon" />
                 <span className="shareOptionText">Feelings</span>
               </div>
             </div>
-            <button className="shareButton">Share</button>
+            <button className="shareButton" onClick={submitPost}>Share</button>
           </div>
         </div>
       </div>
