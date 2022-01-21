@@ -3,11 +3,12 @@ import React from "react";
 import UserNavigation from "../../Shared/components/UserNavigation";
 
 import "./QueryFeed.css";
-
+import {useAuth} from "../../contexts/AuthContext"
 import QueryShare from "../components/QueryShare/QueryShare";
 import QueryLeftBar from "../components/QueryLeftShare/QueryLeftBar";
 import QueryRightShare from "../components/QueryRightShare/QueryRightShare";
 const QueryFeed = () => {
+  const {currentUser} = useAuth();
   return (
     <React.Fragment>
       <UserNavigation />

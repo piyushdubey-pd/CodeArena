@@ -74,7 +74,7 @@ const Login = () => {
       });
 
       alert("Data posted successfully");
-      history.push("/PostFeed");
+      history.push("/QueryFeed");
     // }
   }
   else{
@@ -100,7 +100,7 @@ const Login = () => {
         var user_det=await login(email,passw);
         console.log(user_det.user.uid);
         alert("Login Successful");
-        history.push("/PostFeed")
+        history.push("/QueryFeed")
     } catch (error) {
         setError("Failed to login");
         alert("Failed to login");

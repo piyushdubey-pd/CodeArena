@@ -4,7 +4,7 @@ import { Search } from "@mui/icons-material";
 import { useAuth } from "../../../../contexts/AuthContext";
 import img1 from "../FeedPeopleImages/4.jpg"
 import {db} from "../../../../firebase";
-import {get, ref, set, child} from "firebase/database";
+import {get, ref, set, push, child} from "firebase/database";
 import React,{useState, useEffect} from "react";
 import { getStorage, ref as refs, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import userEvent from "@testing-library/user-event";
@@ -55,7 +55,7 @@ export default function Share() {
   }
   const aux = ()=>
   {
-  const storageRef = refs(storage, 'images/' + file.name);
+  const storageRef = refs(storage, 'multimedia/' + file.name);
   const uploadTask = uploadBytesResumable(storageRef, file);
   console.log("Reached here");
 // Listen for state changes, errors, and completion of the upload.
@@ -103,7 +103,7 @@ export default function Share() {
 //************************img/vid upload end ***************************
 
   const [postdetails, setPostdetails] = useState({
-    post_id: "",
+    // post_id: "",
     post_user: currentUser.uid,
     post_details: "",
     post_multi: "",
@@ -136,12 +136,17 @@ export default function Share() {
   
   const submitPost = async (e) =>{
     console.log("Submit clicked");
-    var temp = new Date().toLocaleString();
-    setPostdetails({ ... postdetails, ["post_id"]: currentUser.uid+":"+temp });
+    // setPostdetails({ ... postdetails, ["post_id"]: currentUser.uid+":"+temp });
 
     if (postdetails["post_details"]!=""){
-      set(ref(db, `posts/${postdetails["post_id"]}`), postdetails);
-      setPostdetails({ ... postdetails, ["post_time"]: temp });
+      // set(ref(db, `posts/${postdetails["post_id"]}`), postdetails);
+      const postsRef=ref(db,'posts/');
+      // console.log(postsRef);
+      const newPostRef=push(postsRef);
+      console.log(newPostRef);
+      setPostdetails({ ... postdetails, ["post_time"]: new Date().toLocaleString() });
+      set(newPostRef,postdetails);
+      alert("Post added successfully");
     }
     else
     {

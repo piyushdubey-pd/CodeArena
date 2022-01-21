@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {useAuth} from "../../contexts/AuthContext";
 import "./UserNavigation.css";
+import {useHistory} from "react-router-dom";
 
 import {
   Collapse,
@@ -11,6 +12,7 @@ import {
   Nav,
   NavItem,
   NavLink,
+  Button,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -18,11 +20,17 @@ import {
   // NavbarText,
 } from "reactstrap";
 
+
 const Navigation = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
   const {logout}=useAuth();
+
+  const history=useHistory();
+  const MovetoRoute = async(e) => {
+    history.push("/"+e.target.name);
+  }
 
   return (
     <div className="UserNav sticky-top">
@@ -40,13 +48,13 @@ const Navigation = (props) => {
           <Collapse isOpen={isOpen} navbar>
             <Nav navbar>
               <NavItem className="NavItemPos">
-                <NavLink className="NavLinksStyle" href="/components/">
+                <NavLink to="/QueryFeed" className="NavLinksStyle" href="#" name="QueryFeed" onClick={MovetoRoute}>
                   Home
                 </NavLink>
               </NavItem>
 
               <NavItem className="NavItemPos">
-                <NavLink className="NavLinksStyle" href="/components/">
+                <NavLink to="/PostFeed" className="NavLinksStyle" href="#" name="PostFeed" onClick={MovetoRoute} >
                   PostFeed
                 </NavLink>
               </NavItem>
@@ -64,7 +72,7 @@ const Navigation = (props) => {
               </NavItem>
 
               <NavItem className="">
-                <NavLink className="NavLinksStyle" href="/components/">
+                <NavLink className="NavLinksStyle" href="/UserProfile" name="UserProfile">
                   {/* Contact us */}
                   <i class="fas fa-2x fa-user"></i>
                 </NavLink>

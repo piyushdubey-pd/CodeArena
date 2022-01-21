@@ -1,13 +1,14 @@
 import { PermMedia, Label, Room, EmojiEmotions } from "@mui/icons-material";
 import { Search } from "@mui/icons-material";
 import React, { useState } from "react";
-
+import { useAuth } from "../../../contexts/AuthContext";
 import QueryAskModal from "./QueryAsk/QueryAskModal";
 import QueryPost from "../QueryShare/QueryPost/QueryPost"
 import QueryAddAnswerModal from "../QueryShare/QueryAddAnswer/QueryAddAnswerModal";
 
 import "./QueryShare.css";
 export default function QueryShare() {
+  const { currentUser } = useAuth();
   const [isAsk, AsksetOpen] = useState(false);
 
   const handleOpen = (event) => {
@@ -19,7 +20,7 @@ export default function QueryShare() {
     AsksetOpen(false);
   };
 
-
+  console.log(currentUser.uid);
 
 
   return (
