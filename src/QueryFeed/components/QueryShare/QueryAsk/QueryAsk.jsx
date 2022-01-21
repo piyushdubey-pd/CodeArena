@@ -29,10 +29,10 @@ const QueryAsk = () => {
   const postQuery = () => {
     console.log("Post clicked");
     console.log(query);
+    setQuery({ ... query, ["time"]: new Date().toLocaleString() });
     if (query["question"]!=""){
       const queryRef=ref(db,'queries/');
       const newQueryRef=push(queryRef);
-      setQuery({ ... query, ["time"]: new Date().toLocaleString() });
       set(newQueryRef,query);
       alert("Query added successfully");
     }
