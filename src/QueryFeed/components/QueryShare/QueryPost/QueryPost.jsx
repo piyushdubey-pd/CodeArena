@@ -4,35 +4,51 @@ import React, { useState } from "react";
 import { MoreVert, PinDropSharp } from "@mui/icons-material";
 import {useAuth} from "../../../../contexts/AuthContext";
 import {db} from "../../../../firebase";
-import {onValue, ref,set} from "firebase/database";
+import {get, onValue, ref,remove,set} from "firebase/database";
 import img1 from "../../../../PostFeed/components/Feed/FeedPeopleImages/1.jpg";
 import QueryAnswersModal from "../QueryAnswers/QueryAnswersModal";
 import QueryAddAnswerModal from "../QueryAddAnswer/QueryAddAnswerModal";
 export default function QueryPost(props) {
   const {currentUser} = useAuth();
-  const [liked, upliked]=useState(true);
+  const [liked, upliked]=useState(false);
   const [likes, updateLikes] = useState(props.likes);
   
   // // ADD_Answer
-  const reff=ref(db,"queries/"+props.id+"/likes");
   // onValue(reff, (snapshot) => {
   //   var likes=snapshot.val();
   //   updateLikes(likes);
   // }, (errorObject) => {
   //   console.log('The read failed: ' + errorObject.name);
   // });
+
+ 
+
   const handleLike = () => {
+    const reff=ref(db,'queries/'+props.id+'/liked_users/'+currentUser.uid);
     const likesRef=ref(db,'queries/'+props.id+'/likes');
-    upliked(!liked);
-    if(liked)
+    onValue(reff,(snapshot) => {
+      if (snapshot.exists()){
+        upliked(true);
+      }
+      else{
+        upliked(false);
+      }
+    }, (errorObject) => {
+      console.log('The read failed: ' + errorObject.name);
+    });
+    if(!liked)
     {
+      upliked(true);
       updateLikes(likes+1);
       set(likesRef,likes+1);
+      set(reff,currentUser.uid);
     }
     else
     {
+      upliked(false);
       updateLikes(likes-1);
       set(likesRef,likes-1);
+      remove(reff);
     }
   }
 
