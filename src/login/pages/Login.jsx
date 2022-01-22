@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import {db} from "../../firebase";
 import {ref, set} from "firebase/database"
 import "./Login.css";
+import {updateProfile} from "firebase/auth";
 
 import { Button } from "@mui/material";
 import { FaxRounded } from "@mui/icons-material";
@@ -45,9 +46,17 @@ const Login = () => {
     const user_det=await signup(email,passw);
     // console.log(user_det.user.uid);
     var uid=user_det.user.uid;
-    set(ref(db,"login_details/"+uid),{
-      name:name,
-      phno:phno
+    // user_det.user.displayName   user_det.user.phoneNumber user_det.user.photoURL
+    updateProfile(user_det.user, {
+      displayName: name, photoURL: "", phoneNumber: phno,
+    }).then(() => {
+      set(ref(db,"login_details/"+uid),{
+        name:name,
+        phno:phno
+      });
+    }).catch((error) => {
+      // An error occurred
+      // ...
     });
   
 
