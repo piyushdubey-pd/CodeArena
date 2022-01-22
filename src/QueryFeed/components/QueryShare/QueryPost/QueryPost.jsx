@@ -2,13 +2,40 @@ import "./QueryPost.css";
 
 import React, { useState } from "react";
 import { MoreVert, PinDropSharp } from "@mui/icons-material";
-
+import {useAuth} from "../../../../contexts/AuthContext";
+import {db} from "../../../../firebase";
+import {onValue, ref,set} from "firebase/database";
 import img1 from "../../../../PostFeed/components/Feed/FeedPeopleImages/1.jpg";
 import QueryAnswersModal from "../QueryAnswers/QueryAnswersModal";
 import QueryAddAnswerModal from "../QueryAddAnswer/QueryAddAnswerModal";
-
 export default function QueryPost(props) {
-  // ADD_Answer
+  const {currentUser} = useAuth();
+  const [liked, upliked]=useState(true);
+  const [likes, updateLikes] = useState(props.likes);
+  
+  // // ADD_Answer
+  const reff=ref(db,"queries/"+props.id+"/likes");
+  // onValue(reff, (snapshot) => {
+  //   var likes=snapshot.val();
+  //   updateLikes(likes);
+  // }, (errorObject) => {
+  //   console.log('The read failed: ' + errorObject.name);
+  // });
+  const handleLike = () => {
+    const likesRef=ref(db,'queries/'+props.id+'/likes');
+    upliked(!liked);
+    if(liked)
+    {
+      updateLikes(likes+1);
+      set(likesRef,likes+1);
+    }
+    else
+    {
+      updateLikes(likes-1);
+      set(likesRef,likes-1);
+    }
+  }
+
   const [isAddAns, SetisAddAns] = useState(false);
   const handleAddAnswerOpen = (event) => {
     event.preventDefault();
@@ -45,7 +72,7 @@ export default function QueryPost(props) {
               <img src={img1} alt="" />
             </div>
             <div className="shareInput">
-              <p className="MainTitle">Sherlock Holmes</p>
+              <p className="MainTitle">{props.userid}</p>
               {/* <span className="SubTitle">5 min ago</span> */}
             </div>
           </div>
@@ -57,15 +84,11 @@ export default function QueryPost(props) {
           <div className="QueryQuestion">
             <div class="QueryQuestionScrollbar" id="style-4">
               <div class="QueryQuestionForce-overflow">
+                <h4>{props.question}</h4>
                 <p>
-                  What is the most minimal way to add federated logins to an AWS
-                  SAM app? How is that encorporated in the code ? What is the
-                  most minimal way to add federated logins to an AWS SAM app?
-                  How is that encorporated in the code ? What is the most
-                  minimal way to add federated logins to an AWS SAM app? How is
-                  that encorporated in the code ? What is the most minimal way
-                  to add federated logins to an AWS SAM app? How is that
-                  encorporated in the code ?
+                  <div>{props.description}</div>
+                  <div>{props.time}</div>
+                  <div>{props.code}</div>
                 </p>
               </div>
             </div>
@@ -80,9 +103,9 @@ export default function QueryPost(props) {
 
         <div className="QueryPostFoot">
           <div className="QueryPostLikeCmt">
-            <div className="QueryPostLike">
+            <div className="QueryPostLike" onClick={handleLike}>
               <i class="fas fa-2x fa-heart"></i>
-              <p className="QueryPostLikeText">5,684 Likes</p>
+              <p className="QueryPostLikeText">{likes}</p>
             </div>
 
             <div className="QueryPostAns">

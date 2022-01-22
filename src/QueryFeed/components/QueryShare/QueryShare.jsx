@@ -1,14 +1,39 @@
 import { PermMedia, Label, Room, EmojiEmotions } from "@mui/icons-material";
 import { Search } from "@mui/icons-material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../../../contexts/AuthContext";
 import QueryAskModal from "./QueryAsk/QueryAskModal";
 import QueryPost from "../QueryShare/QueryPost/QueryPost"
 import QueryAddAnswerModal from "../QueryShare/QueryAddAnswer/QueryAddAnswerModal";
-
+import {db} from "../../../firebase";
+import {ref,onValue, get , child} from "firebase/database"
 import "./QueryShare.css";
+
 export default function QueryShare() {
-  const { currentUser } = useAuth();
+  const {currentUser} = useAuth();
+  const [querries,setQuerries] = useState([]);
+  
+  useEffect(() => {
+    var Q=[];
+  const reff=ref(db);
+  get(child(reff,`queries/`)).then((snapshot) => {
+    if (snapshot.exists()){
+    var querriesRes=snapshot.val();
+    for (var x in querriesRes)
+    {
+      querriesRes[x]["id"]=x;
+      Q.push(querriesRes[x]);
+    }
+    setQuerries(Q);
+    }
+  }).catch((errorObject) => {
+    console.log('The read failed: ' + errorObject.name);
+  });
+  // var querryIDs=[];
+ 
+  // console.log(querryIDs);
+  console.log(Q);
+}, []);
   const [isAsk, AsksetOpen] = useState(false);
 
   const handleOpen = (event) => {
@@ -20,7 +45,7 @@ export default function QueryShare() {
     AsksetOpen(false);
   };
 
-  console.log(currentUser.uid);
+
 
 
   return (
@@ -47,11 +72,23 @@ export default function QueryShare() {
 
       </div> */}
 
+      {/* <QueryPost />
       <QueryPost />
       <QueryPost />
       <QueryPost />
-      <QueryPost />
-      <QueryPost />
+      <QueryPost /> */}
+
+      {querries && querries.map(function(querry){return  <QueryPost 
+      id={querry.id}
+      question={querry.question}
+      description={querry.description}
+      time={querry.time}
+      code={querry.code}
+      userid={querry.userid}
+      likes={querry.likes}
+      // answers={querry.answers}
+      />
+      })}
     </React.Fragment>
   );
 }

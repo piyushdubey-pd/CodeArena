@@ -14,7 +14,7 @@ const QueryAsk = () => {
     code: "",
     userid: currentUser.uid ,
     answers: [],
-    time:"",
+    time:new Date().toLocaleString(),
     likes: 0,
   });
 
@@ -27,9 +27,9 @@ const QueryAsk = () => {
   }
 
   const postQuery = () => {
+    setQuery({ ... query, ["time"]: new Date().toLocaleString() });
     console.log("Post clicked");
     console.log(query);
-    setQuery({ ... query, ["time"]: new Date().toLocaleString() });
     if (query["question"]!=""){
       const queryRef=ref(db,'queries/');
       const newQueryRef=push(queryRef);
