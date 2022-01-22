@@ -1,6 +1,6 @@
 import "./QueryPost.css";
 
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { MoreVert, PinDropSharp } from "@mui/icons-material";
 import {useAuth} from "../../../../contexts/AuthContext";
 import {db} from "../../../../firebase";
@@ -8,50 +8,49 @@ import {get, onValue, ref,remove,set} from "firebase/database";
 import img1 from "../../../../PostFeed/components/Feed/FeedPeopleImages/1.jpg";
 import QueryAnswersModal from "../QueryAnswers/QueryAnswersModal";
 import QueryAddAnswerModal from "../QueryAddAnswer/QueryAddAnswerModal";
+
 export default function QueryPost(props) {
-  const {currentUser} = useAuth();
-  const [liked, upliked]=useState(false);
+  const {currentUser} = useAuth();      
   const [likes, updateLikes] = useState(props.likes);
-  
-  // // ADD_Answer
-  // onValue(reff, (snapshot) => {
-  //   var likes=snapshot.val();
-  //   updateLikes(likes);
-  // }, (errorObject) => {
-  //   console.log('The read failed: ' + errorObject.name);
-  // });
-
+  const [user_name, setUserName] = useState("");
  
-
+//*****like handle system */
   const handleLike = () => {
     const reff=ref(db,'queries/'+props.id+'/liked_users/'+currentUser.uid);
     const likesRef=ref(db,'queries/'+props.id+'/likes');
-    onValue(reff,(snapshot) => {
+    get(reff).then((snapshot) => {
       if (snapshot.exists()){
-        upliked(true);
+        set(likesRef,likes-1) && remove(reff);
+        updateLikes(likes-1);
       }
       else{
-        upliked(false);
+        set(likesRef,likes+1) && set(reff,currentUser.uid);
+        updateLikes(likes+1);
       }
-    }, (errorObject) => {
+    }).catch((errorObject) => {
       console.log('The read failed: ' + errorObject.name);
     });
-    if(!liked)
-    {
-      upliked(true);
-      updateLikes(likes+1);
-      set(likesRef,likes+1);
-      set(reff,currentUser.uid);
-    }
-    else
-    {
-      upliked(false);
-      updateLikes(likes-1);
-      set(likesRef,likes-1);
-      remove(reff);
-    }
   }
+//*****like handle system ends */
 
+//*****user_name extract system */
+  useEffect(() => {
+    
+    var reff=ref(db,'login_details/'+props.userid);
+    get(reff).then((snapshot) => {
+      if (snapshot.exists()){
+        var user_name=snapshot.val().name;
+        // console.log(user_name);
+        setUserName(user_name);
+      }
+      else{
+        console.log("not found");
+      }
+    }).catch((errorObject) => {
+      console.log('The read failed: ' + errorObject.name);
+    });
+  }, []);
+//***** user name extract system ends */
   const [isAddAns, SetisAddAns] = useState(false);
   const handleAddAnswerOpen = (event) => {
     event.preventDefault();
@@ -83,15 +82,15 @@ export default function QueryPost(props) {
       <div className="QueryMainPost">
         <div className="QueryPostHead">
           {/* <div className="shareWrapper"> */}
-          <div className="shareTop">
+          {user_name && <div className="shareTop">
             <div className="shareProfileImg">
               <img src={img1} alt="" />
             </div>
             <div className="shareInput">
-              <p className="MainTitle">{props.userid}</p>
+              <p className="MainTitle">{user_name}</p>
               {/* <span className="SubTitle">5 min ago</span> */}
             </div>
-          </div>
+          </div>}
 
           {/* </div> */}
         </div>
