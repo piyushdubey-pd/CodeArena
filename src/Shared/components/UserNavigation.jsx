@@ -72,9 +72,10 @@ const Navigation = (props) => {
               </NavItem>
 
               <NavItem className="">
-                <NavLink className="NavLinksStyle" href="/UserProfile" name="UserProfile">
+                <NavLink to="/UserProfile" className="NavLinksStyle" href="#" name="UserProfile" onClick={MovetoRoute}>
                   {/* Contact us */}
-                  <i class="fas fa-2x fa-user"></i>
+                  Helop
+                  {/* <i class="fas fa-2x fa-user"></i> */}
                 </NavLink>
               </NavItem>
 

@@ -9,6 +9,9 @@ import UserContributions from "./UserContributions/UserContributions";
 import "./UserProfile.css";
 import img1 from "../PostFeed/components/Feed/FeedPeopleImages/1.jpg";
 
+// import { useAuth } from "../contexts/AuthContext";
+import {useAuth} from "../contexts/AuthContext";
+
 const UserProfile = () => {
   const [isQuery, SetIsQuery] = useState(true);
   const [isPost, SetIsPost] = useState(false);
@@ -30,6 +33,8 @@ const UserProfile = () => {
     SetIsContri(true);
   };
 
+  const {currentUser} = useAuth();
+  console.log(currentUser);
   return (
     <React.Fragment>
       <UserNavigation />
@@ -40,10 +45,10 @@ const UserProfile = () => {
           <div className="UserProfile_1_Content">
             <div className="UserProfileDetails">
               <ul className="UserProfileDetailsList">
-                <li>Sherlock Holmes</li>
-                <li>9686425259</li>
+                <li>{currentUser.displayName}</li>
+                <li>{currentUser.phoneNumber}</li>
                 {/* <li>BMS college of Enginneering</li> */}
-                <li>SherlockHolmes221BBakerStreet@Nomail.com</li>
+                <li>{currentUser.email}</li>
               </ul>
             </div>
 
