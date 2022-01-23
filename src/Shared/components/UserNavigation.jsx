@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {useAuth} from "../../contexts/AuthContext";
 import "./UserNavigation.css";
 import {useHistory} from "react-router-dom";
-
+import { Avatar } from "@mui/material";
 import {
   Collapse,
   Navbar,
@@ -74,8 +74,7 @@ const Navigation = (props) => {
               <NavItem className="">
                 <NavLink to="/UserProfile" className="NavLinksStyle" href="#" name="UserProfile" onClick={MovetoRoute}>
                   {/* Contact us */}
-                  Helop
-                  {/* <i class="fas fa-2x fa-user"></i> */}
+                  <h2>👤</h2>
                 </NavLink>
               </NavItem>
 
