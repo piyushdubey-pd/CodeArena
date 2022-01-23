@@ -33,7 +33,7 @@ export default function BasicModal(props) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-        <QueryAnswers/>
+        <QueryAnswers queryid={props.queryid} />
         </Box>
       </Modal>
     </div>

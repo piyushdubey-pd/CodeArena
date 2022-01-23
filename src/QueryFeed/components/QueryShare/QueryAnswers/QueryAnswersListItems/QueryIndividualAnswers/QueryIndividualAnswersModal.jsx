@@ -51,7 +51,7 @@ export default function BasicModal(props) {
                   <img src={img1} alt="" />
                 </div>
                 <div className="shareInput">
-                  <p className="MainTitle">Sherlock Holmes</p>
+                  <p className="MainTitle">{props.username}</p>
                   {/* <span className="SubTitle">5 min ago</span> */}
                 </div>
               </div>
@@ -64,15 +64,8 @@ export default function BasicModal(props) {
               <div class="IndividualAnswerScrollbar" id="style-4">
                 <div class="IndividualAnswerSrollforce-overflow">
                   <p className="IndividualAnswerText">
-                    Sherlock Holmes is a 2009 period mystery action film based
-                    on the character of the same name created by Sir Arthur
-                    Conan Doyle. The film was directed by Guy Ritchie and
-                    produced by Joel Silver, Lionel Wigram, Susan Downey, and
-                    Dan LinSherlock Holmes is a 2009 period mystery action film
-                    based on the character of the same name created by Sir
-                    Arthur Conan Doyle. The film was directed by Guy Ritchie and
-                    produced by Joel Silver, Lionel Wigram, Susan Downey, and
-                    Dan Lin
+                    {props.answer.answer}
+                    {props.answer.time}
                   </p>
                 </div>
               </div>
@@ -83,25 +76,7 @@ export default function BasicModal(props) {
               <div class="IndividualCodeScrollbar" id="style-4">
                 <div class="IndividualCodeSrollforce-overflow">
                   <p className="IndividualCodeText">
-                    app.get("/Signup" ,
-                    function(req,res)res.render("Signup",title"
-                    Sign-Up",NameValue:"" , UsnValue:"" , EmailValue:"" ,
-                    PasswordValue:"" , BranchValue:"" , ContactValue:"" ,
-                    YearValue:"", Errortext :"" , loginName:"ADMIN LOGIN" ,
-                    loginAddress: "adminLogin");); app.get("/Signup" ,
-                    function(req,res)res.render("Signup",title"
-                    Sign-Up",NameValue:"" , UsnValue:"" , EmailValue:"" ,
-                    PasswordValue:"" , BranchValue:"" , ContactValue:"" ,
-                    YearValue:"", Errortext :"" , loginName:"ADMIN LOGIN" ,
-                    app.get("/Signup" ,
-                    function(req,res)res.render("Signup",title"
-                    Sign-Up",NameValue:"" , UsnValue:"" , EmailValue:"" ,
-                    PasswordValue:"" , BranchValue:"" , ContactValue:"" ,
-                    YearValue:"", Errortext :"" , loginName:"ADMIN LOGIN" ,
-                    loginAddress: "adminLogin");); loginAddress:
-                    "adminLogin");); font-weight: 900; color:; padding-left:
-                    20px; padding-right: 20px; padding-bottom: 0px;
-                    letter-spacing: 1px; line-height: 22px; font-size: 15px;
+                    {props.answer.code}
                   </p>
                 </div>
               </div>

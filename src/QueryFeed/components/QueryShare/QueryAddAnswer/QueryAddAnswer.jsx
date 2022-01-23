@@ -14,7 +14,6 @@ const QueryAddAnswer = (props) => {
     code: "",
     userid: currentUser.uid,
     time: new Date().toLocaleString(),
-    querryid: props.queryid,
     likes: 0,
   });
   let name, value;

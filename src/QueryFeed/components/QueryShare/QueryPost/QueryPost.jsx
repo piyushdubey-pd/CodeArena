@@ -77,7 +77,7 @@ export default function QueryPost(props) {
     <React.Fragment>
       <QueryAddAnswerModal open={isAddAns} queryid={props.id} Close={handleAddAnswerClose} />
 
-      <QueryAnswersModal open={showAnswer} Close={handleClose} />
+      <QueryAnswersModal open={showAnswer} queryid={props.id} Close={handleClose} />
 
       <div className="QueryMainPost">
         <div className="QueryPostHead">

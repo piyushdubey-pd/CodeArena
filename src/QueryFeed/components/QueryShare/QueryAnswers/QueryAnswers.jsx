@@ -1,11 +1,54 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import { db } from "../../../../firebase";
+import {ref,get,child} from "firebase/database"
 import "./QueryAnswers.css";
+import { useAuth } from "../../../../contexts/AuthContext";
 
 import img1 from "../../../../PostFeed/components/Feed/FeedPeopleImages/4.jpg";
 
 import QueryAnswersListItems from "./QueryAnswersListItems/QueryAnswersListItem"
-const QueryAnswers = () => {
+const QueryAnswers = (props) => {
+  const {currentUser} = useAuth();
+  const [answers_list, setAnswers] = useState([]);
+  const [questiondet, setQuestion] = useState("");
+  useEffect(() => {
+    console.log(props.queryid);
+    var reff=ref(db,'queries/'+props.queryid+'/answers/');
+    var reff2=ref(db,'queries/'+props.queryid);
+    get(reff2).then((snapshot) => {
+      if (snapshot.exists()){
+        setQuestion(snapshot.val());
+        // var question=snapshot.val().question;
+        // var description=snapshot.val().description;
+        // var code=snapshot.val().code;
+      }
+      else{
+        console.log("not found");
+      }
+    }).catch((errorObject) => {
+      console.log('The read failed: ' + errorObject.name);
+    });
+
+    get(reff).then((snapshot) => {
+      if (snapshot.exists()){
+        var answers=snapshot.val();
+        var temp=[];
+        console.log(answers);
+        for (var x in answers){
+          answers[x]["id"]=x;
+          temp.push(answers[x]);
+        }
+        setAnswers(temp);
+        // setAnswers(answers);
+      }
+      else{
+        console.log("not found");
+      }
+    }).catch((errorObject) => {
+      console.log('The read failed: ' + errorObject.name);
+    });
+  }, []);
+
   return (
     <div className="ShowAnwersMain">
       <div className="MainQuestion">
@@ -17,9 +60,8 @@ const QueryAnswers = () => {
             </div>
             <div className="shareInput">
               <p className="MainTitle">
-                What is the most minimal way to add federated logins to an AWS
-                SAM app?What is the most minimal way to add federated logins to
-                an AWS SAM app?
+                {questiondet.question}
+                {questiondet.time}
               </p>
               {/* <span className="SubTitle">5 min ago</span> */}
             </div>
@@ -33,17 +75,8 @@ const QueryAnswers = () => {
         <div class="AnswerDescScrollbar" id="style-4">
           <div class="AnswerDescSrollforce-overflow">
             <p className="AnswerDescStyle">
-              What is the most minimal way to add federated logins to an AWS SAM
-              app?What is the most minimal way to add federated logins to an AWS
-              SAM app? What is the most minimal way to add federated logins to
-              an AWS SAM app?What is the most minimal way to add federated
-              logins to an AWS SAM app? What is the most minimal way to add
-              federated logins to an AWS SAM app?What is the most minimal way to
-              add federated logins to an AWS SAM app? What is the most minimal
-              way to add federated logins to an AWS SAM app?What is the most
-              minimal way to add federated logins to an AWS SAM app? What is the
-              most minimal way to add federated logins to an AWS SAM app?What is
-              the most minimal way to add federated logins to an AWS SAM app?
+            {questiondet.description}
+            {questiondet.code}
             </p>
           </div>
         </div>
@@ -58,18 +91,14 @@ const QueryAnswers = () => {
       <div className="MainAllAnswers">
         <div class="AnswerListScrollbar" id="style-4">
           <div class="AnswerListSrollforce-overflow">
-            <QueryAnswersListItems />
-            <QueryAnswersListItems />
-            <QueryAnswersListItems />
-            <QueryAnswersListItems />
-            <QueryAnswersListItems />
-            <QueryAnswersListItems />
-            <QueryAnswersListItems />
-            <QueryAnswersListItems />
-            <QueryAnswersListItems />
-            <QueryAnswersListItems />
-            <QueryAnswersListItems />
-            <QueryAnswersListItems />
+            {/* <QueryAnswersListItems /> */}
+            {/* <QueryAnswersListItems /> */}
+            {answers_list && answers_list.map(function(answer){
+              return(
+                <QueryAnswersListItems answer={answer}/>
+              )
+            })
+          }
           </div>
         </div>
       </div>
