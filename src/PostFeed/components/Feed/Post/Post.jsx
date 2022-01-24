@@ -4,10 +4,31 @@ import React, { useState,useEffect } from "react";
 import { MoreVert, PinDropSharp, PowerOffSharp } from "@mui/icons-material";
 import {db} from "../../../../firebase";
 import img1 from "../FeedPeopleImages/1.jpg";
-import { get,ref } from "firebase/database";
-
+import { get,ref,set,remove } from "firebase/database";
+import { useAuth } from "../../../../contexts/AuthContext";
 
 export default function Post(props) {
+
+  const {currentUser} = useAuth();      
+  const [likes, updateLikes] = useState(props.post.likes);
+
+  const handleLike = () => {
+    const reff=ref(db,'posts/'+props.post.id+'/liked_users/'+currentUser.uid);
+    const likesRef=ref(db,'posts/'+props.post.id+'/likes');
+    get(reff).then((snapshot) => {
+      if (snapshot.exists()){
+        set(likesRef,likes-1) && remove(reff);
+        updateLikes(likes-1);
+      }
+      else{
+        set(likesRef,likes+1) && set(reff,currentUser.uid);
+        updateLikes(likes+1);
+      }
+    }).catch((errorObject) => {
+      console.log('The read failed: ' + errorObject.name);
+    });
+  }
+
   const [name, setName] = useState("");
   useEffect(() => {
     const reff = ref(db,"/login_details/"+props.post.post_user);
@@ -53,9 +74,9 @@ export default function Post(props) {
 
         <div className="PostFoot">
           <div className="PostLikeCmt">
-            <div className="PostLike">
+            <div className="PostLike" onClick={handleLike}>
               <i class="fas fa-2x fa-heart"></i>
-              <p className="PostLikeText">Liked By Rocky and 59,645 others</p>
+              <p className="PostLikeText">{likes}</p>
             </div>
             <div className="PostCmt">
               <i class="fas fa-2x fa-comment"></i>

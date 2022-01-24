@@ -1,7 +1,9 @@
 import "./UserContributions.css";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MoreVert, PinDropSharp } from "@mui/icons-material";
+import { db } from "../../firebase";
+import { get, ref } from "firebase/database";
 
 import img1 from "../../PostFeed/components/Feed/FeedPeopleImages/1.jpg";
 // import QueryAnswersModal from "../QueryAnswers/QueryAnswersModal";
@@ -9,6 +11,20 @@ import img1 from "../../PostFeed/components/Feed/FeedPeopleImages/1.jpg";
 
 export default function UserContributions(props) {
   // ADD_Answer
+
+  const [name, setName] = useState("");
+  useEffect(() => {
+    const reff = ref(db,"/login_details/"+props.contri.userid);
+    get(reff).then((snapshot) => {
+      if (snapshot.exists()){
+        var user=snapshot.val().name;
+        setName(user);
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+  }, []);
+
   const [isAddAns, SetisAddAns] = useState(false);
   const handleAddAnswerOpen = (event) => {
     event.preventDefault();
@@ -45,7 +61,7 @@ export default function UserContributions(props) {
               <img src={img1} alt="" />
             </div>
             <div className="shareInput">
-              <p className="MainTitle">Sherlock Holmes</p>
+              <p className="MainTitle">{name}</p>
               {/* <span className="SubTitle">5 min ago</span> */}
             </div>
           </div>
@@ -58,15 +74,11 @@ export default function UserContributions(props) {
           <div className="UserQueryQuestion">
             <div class="QueryQuestionScrollbar" id="style-4">
               <div class="QueryQuestionForce-overflow">
+              <h2>{props.contri.question}</h2>
                 <p>
-                  What is the most minimal way to add federated logins to an AWS
-                  SAM app? How is that encorporated in the code ? What is the
-                  most minimal way to add federated logins to an AWS SAM app?
-                  How is that encorporated in the code ? What is the most
-                  minimal way to add federated logins to an AWS SAM app? How is
-                  that encorporated in the code ? What is the most minimal way
-                  to add federated logins to an AWS SAM app? How is that
-                  encorporated in the code ?
+                {props.contri.description}
+                 <div>{props.contri.code}</div>
+                 <div>{props.contri.time}</div>
                 </p>
               </div>
             </div>
@@ -97,7 +109,7 @@ export default function UserContributions(props) {
           <div className="UserQueryPostLikeCmt">
             <div className="UserQueryPostLike">
               <i class="fas fa-2x fa-heart"></i>
-              <p className="UserQueryPostLikeText">5,684 Likes</p>
+              <p className="UserQueryPostLikeText">{props.contri.likes}</p>
             </div>
 
             <div className="UserQueryPostAns">
