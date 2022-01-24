@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UserNavigation from "../Shared/components/UserNavigation";
 
 import QueryPost from "../QueryFeed/components/QueryShare/QueryPost/QueryPost";
@@ -9,10 +9,42 @@ import UserContributions from "./UserContributions/UserContributions";
 import "./UserProfile.css";
 import img1 from "../PostFeed/components/Feed/FeedPeopleImages/1.jpg";
 
-// import { useAuth } from "../contexts/AuthContext";
+import {db} from "../firebase";
+import {get, ref} from "firebase/database";
 import {useAuth} from "../contexts/AuthContext";
 
 const UserProfile = () => {
+  const {currentUser} = useAuth();
+  const [userP, setP] = useState([]);
+  const [userQ, setQ] = useState([]);
+  const [userC, setC] = useState([]);
+  useEffect(() => {
+    
+    const queryRef=ref(db,"queries");
+    var userQuery=[];
+    
+    get(queryRef).then((snapshot)=>{
+      if(snapshot.exists())
+      {
+        var queries=snapshot.val();
+        for (var x in queries)
+        {
+          if(queries[x].userid==currentUser.uid)
+          userQuery.push(queries[x]);
+        }
+        console.log(userQuery);
+        setQ(userQuery);
+      }
+      else
+      {
+        console.log("no query");
+      }
+    }).catch((error)=>{
+      console.log(error);
+    });
+
+
+  }, []);
   const [isQuery, SetIsQuery] = useState(true);
   const [isPost, SetIsPost] = useState(false);
   const [isContri, SetIsContri] = useState(false);
@@ -26,14 +58,63 @@ const UserProfile = () => {
     SetIsQuery(false);
     SetIsPost(true);
     SetIsContri(false);
+
+    const postRef= ref(db,"posts");
+    var userPost=[];
+    get(postRef).then((snapshot)=>{
+      if(snapshot.exists())
+      {
+        var posts=snapshot.val();
+        for (var x in posts)
+        {
+          if(posts[x].post_user==currentUser.uid)
+          userPost.push(posts[x]);
+        }
+        console.log(userPost);
+        setP(userPost);
+      }
+      else
+      {
+        console.log("no posts");
+      }
+    }).catch((error)=>{
+      console.log(error);
+    });
   };
   const ChangeToContri = (event) => {
     SetIsQuery(false);
     SetIsPost(false);
     SetIsContri(true);
-  };
 
-  const {currentUser} = useAuth();
+
+    const queryRef=ref(db,"queries");
+    var userContri=[];
+    get(queryRef).then((snapshot)=>{
+      if(snapshot.exists())
+      {
+        var queries=snapshot.val();
+        for (var x in queries)
+        {
+          for(var y in queries[x].answers)
+          {
+            if(queries[x].answers[y].userid==currentUser.uid)
+            userContri.push(queries[x]);
+          }
+        }
+        console.log(userContri);
+        setC(userContri);
+      }
+      else
+      {
+        console.log("no query");
+      }
+    }).catch((error)=>{
+      console.log(error);
+    });
+
+
+    
+  };
   console.log(currentUser);
   return (
     <React.Fragment>
@@ -101,11 +182,18 @@ const UserProfile = () => {
                   : "QueryDisplayMain UserProfile_3_Content_Visibility"
               }
             >
-              <UserQueryPosts />
-              <UserQueryPosts />
-              <UserQueryPosts />
-              <UserQueryPosts />
-              <UserQueryPosts />
+              {userQ.map(function (query) {
+                return (
+                  <UserQueryPosts query={query}/>
+                  );
+                }
+              )
+                }
+              
+              {/* // <UserQueryPosts />
+              // <UserQueryPosts />
+              // <UserQueryPosts />
+              // <UserQueryPosts /> */}
             </div>
 
             <div
@@ -115,12 +203,18 @@ const UserProfile = () => {
                   : " PostDisplayMain UserProfile_3_Content_Visibility"
               }
             >
+              {userP.map(function (post) {
+                return (
+                  <UserPost post={post}/>
+                  );
+                }
+              )}
+              {/* <UserPost />
               <UserPost />
               <UserPost />
               <UserPost />
               <UserPost />
-              <UserPost />
-              <UserPost />
+              <UserPost /> */}
             </div>
 
             <div
@@ -130,12 +224,18 @@ const UserProfile = () => {
                   : "ContriDisplayMain UserProfile_3_Content_Visibility"
               }
             >
+              {userC.map(function (contri) {
+                return (
+                  <UserContributions contri={contri} />
+                  );
+                }
+              )}
+              
+              {/* <UserContributions />
               <UserContributions />
               <UserContributions />
               <UserContributions />
-              <UserContributions />
-              <UserContributions />
-              <UserContributions />
+              <UserContributions /> */}
             </div>
           </div>
         </div>

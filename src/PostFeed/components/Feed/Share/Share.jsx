@@ -108,7 +108,7 @@ export default function Share() {
     post_details: "",
     post_multi: "",
     post_location: "",
-    post_time: "",
+    post_time: new Date().toLocaleString(),
     likes: 0,
     comments: [],    
   });
